@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="EMP:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="EMP-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="EMP:war exploded" />
+    </root>
+  </artifact>
+</component>
