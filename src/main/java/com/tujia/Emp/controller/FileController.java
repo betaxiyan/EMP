@@ -12,8 +12,5 @@ public class FileController {
     @Autowired
     private FileService fileService;
 
-    @RequestMapping("/all")
-    public String selectAll(){
-        return null;
-    }
+
 }

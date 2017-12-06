@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RewardController {
     @Autowired
-    private RewardService rewardService;
+    private RewardService rewardService;}
 
-    @RequestMapping("/all")
-    public String selectAll(){
-        return null;
-    }
-}
+

@@ -1,7 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tujia.Emp.Dao.PeopleDao">
-    <select id="selectAll" resultType="com.tujia.Emp.entity.People">
+    <select id="selectAllPeople" resultType="com.tujia.Emp.entity.People">
         select * from people;
     </select>
+    
+    <select id="selectPeopleByID" resultType="com.tujia.Emp.entity.People" parameterType="java.lang.String">
+        select * from people where id=#{id}
+    </select>
+    <select id="selectPeopleByName" resultType="com.tujia.Emp.entity.People" parameterType="java.lang.String">
+        select * from people where id like *#{id}*
+    </select>
+
+    <insert id="insertPeople" parameterType="com.tujia.Emp.entity.People" >
+        insert into people
+        (
+            ID ,
+            name,
+            sex,
+            ethnic,
+            married,
+            birth,
+            education,
+            university,
+            native_place,
+            private_email,
+            phone_number
+        )
+        values
+        (
+            #{ID},
+            #{name},
+            #{sex},
+            #{ethnic},
+            #{married},
+            #{birth},
+            #{education},
+            #{university},
+            #{native_place},
+            #{private_email},
+            #{phone_number}
+        )
+    </insert>
+
+    <delete id="deletePeopleByID" parameterType="java.lang.String">
+        delete from people where id=#{id}
+    </delete>
+
+    <update id="updatePeople" parameterType="com.tujia.Emp.entity.People">
+        update people
+        set
+            name=#{name},
+            sex=#{sex},
+            ethnic=#{ethnic},
+            married=#{married},
+            birth=#{birth},
+            education=#{education},
+            university=#{university},
+            native_place=#{native_place},
+            private_email=#{private_email},
+            phone_number=#{phone_number}
+        where
+            id=#{ID}
+    </update>
 </mapper>

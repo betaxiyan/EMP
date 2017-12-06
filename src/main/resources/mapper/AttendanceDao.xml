@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tujia.Emp.Dao.AttendanceDao">
-    <select id="selectAll" resultType="com.tujia.Emp.entity.People">
-        select * from people;
+    <select id="selectAllAttendance" resultType="com.tujia.Emp.entity.Attendance">
+        select * from Attendance;
     </select>
+
+    <insert id="insertAttendance" parameterType="com.tujia.Emp.entity.Attendance">
+        insert into Attendance
+        (
+            emp_id,
+            date,
+            work_time,
+            offwork_time,
+            checked,
+            flag
+        )
+        values
+        (
+            #{emp_id},
+            #{date},
+            #{work_time},
+            #{offwork_time},
+            #{checked},
+            #{flag}
+        )
+    </insert>
+    <update id="updateAttendance" parameterType="com.tujia.Emp.entity.Attendance">
+        updeta Attendance
+        set
+        (
+            work_time=#{work_time},
+            offwork_time=#{offwork_time},
+            checked=#{checked},
+            flag=#{flag}
+        )
+        where
+            emp_id=#{emp_id},
+            date=#{date}
+    </update>
 </mapper>

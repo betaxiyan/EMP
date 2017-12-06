@@ -16,8 +16,5 @@ public class RewardServiceImpl implements RewardService {
     private RewardDao rewardDao;
 
 
-    public String selectAll() {
-        return null;
 
-    }
 }

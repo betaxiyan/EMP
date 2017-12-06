@@ -16,9 +16,5 @@ public class AttendanceServiceImpl implements AttendanceService {
     private AttendanceDao attendanceDao;
 
 
-    public String selectAll() {
 
-        return null;
-
-    }
 }

@@ -1,5 +1,8 @@
 package com.tujia.Emp.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
 import java.util.Date;
 
@@ -8,7 +11,11 @@ import java.util.Date;
  */
 public class Attendance {
     private int emp_id;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JSONField(format="yyyy-MM-dd")
     private Date date;
+
     private Time work_time;
     private Time offwork_time;
     private Boolean checked;

@@ -1,5 +1,9 @@
 package com.tujia.Emp.entity;
 
+
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -12,7 +16,11 @@ public class People {
     private String sex;
     private String ethnic;//民族
     private Integer married;//婚姻状况
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JSONField(format="yyyy-MM-dd")
     private Date birth;
+
     private String education;//学历
     private String university;
     private String native_place;

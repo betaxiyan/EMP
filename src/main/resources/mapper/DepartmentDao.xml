@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tujia.Emp.Dao.DepartmentDao">
-    <select id="selectAll" resultType="com.tujia.Emp.entity.People">
-        select * from people;
+
+
+    <select id="selectAllDepartment" resultType="com.tujia.Emp.entity.Department">
+        select * from Department;
     </select>
+    <select id="selectDepartmentByID" parameterType="int" resultType="com.tujia.Emp.entity.Department">
+        select * from Department where depart_id=#{depart_id}
+    </select>
+    <select id="selectPeopleByName" parameterType="java.lang.String" resultType="com.tujia.Emp.entity.Department">
+        select * from Department where depart_name=#{depart_name}
+    </select>
+
+    <insert id="insertDepartment" parameterType="com.tujia.Emp.entity.Department">
+        insert into Department
+        (
+            depart_id,
+            depart_name,
+            head_id
+        )
+        values
+        (
+            #{depart_id},
+            #{depart_name},
+            #{head_id}
+        )
+    </insert>
+
+    <update id="updateDepartment" parameterType="com.tujia.Emp.entity.Department">
+        update Department
+        set
+        (
+            depart_name=#{depart_name},
+            head_id=#{head_id}
+        )
+        where
+            depart_id=#{depart_id}
+    </update>
+
+    <delete id="deleteDepartmentByID" parameterType="int">
+        delete from Department where depart_id=#{depart_id}
+    </delete>
+
 </mapper>

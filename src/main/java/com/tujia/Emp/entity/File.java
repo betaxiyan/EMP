@@ -1,11 +1,21 @@
 package com.tujia.Emp.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class File {
     private String ID;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JSONField(format="yyyy-MM-dd")
     private Date start_date;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JSONField(format="yyyy-MM-dd")
     private Date end_date;
+
     private String description;
 
     @Override

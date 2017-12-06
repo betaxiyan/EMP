@@ -1,7 +1,9 @@
 package com.tujia.Emp.entity;
 
-import com.tujia.Emp.enums.SexEnum;
 
+/**
+ *
+ */
 public class Department {
     private int depart_id;
     private String depart_name;

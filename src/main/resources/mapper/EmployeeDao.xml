@@ -1,7 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tujia.Emp.Dao.EmployeeDao">
-    <select id="selectAll" resultType="com.tujia.Emp.entity.People">
-        select * from people;
+
+    <select id="selectAllEmployee" resultType="com.tujia.Emp.entity.Employee">
+        select * from Employee;
     </select>
+    <select id="selectEmployeeByemp_id" parameterType="int" resultType="com.tujia.Emp.entity.Employee">
+        select * from Emlpoyee where emp_id=#{emp_id}
+    </select>
+
+    <select id="selectEmployeeByID" parameterType="java.lang.String" resultType="com.tujia.Emp.entity.Employee">
+        select * from Emlpoyee where ID=#{ID}
+    </select>
+
+    <insert id="insertEmployee" parameterType="com.tujia.Emp.entity.Employee">
+        insert into Employee
+        (
+            emp_id,
+            depart_id,
+            ID,
+            email,
+            grade,
+            position,
+            join_time
+        )
+        values
+        (
+            #{emp_id},
+            #{depart_id},
+            #{ID},
+            #{email},
+            #{grade},
+            #{position},
+            #{join_time}
+        )
+    </insert>
+
+    <delete id="deleteEmployeeByID" parameterType="java.lang.String">
+        delete from Employee where ID=#{ID}
+    </delete>
+    <delete id="deleteEmployeeByemp_id" parameterType="int">
+        delete from Employee where emp_id=#{emp_id}
+    </delete>
+    
+    <update id="updateEmployee" parameterType="com.tujia.Emp.entity.Employee">
+        update Employee
+        set
+            depart_id=#{depart_id},
+            ID=#{ID},
+            email=#{email},
+            grade=#{grade},
+            position=#{position},
+            join_time=#{join_time}
+        where
+            emp_id=#{emp_id}
+
+    </update>
+    
+
 </mapper>

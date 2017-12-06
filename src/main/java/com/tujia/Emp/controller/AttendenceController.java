@@ -11,8 +11,4 @@ public class AttendenceController {
     @Autowired
     private AttendanceService attendanceService;
 
-    @RequestMapping("/all")
-    public String selectAll(){
-        return null;
-    }
 }

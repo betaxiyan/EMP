@@ -17,10 +17,5 @@ public class FileServiceImpl implements FileService {
     private FileDao fileDao;
 
 
-    public String selectAll() {
 
-
-        return null;
-
-    }
 }
