@@ -11,6 +11,6 @@ public interface EmployeeDao {
     public Employee selectEmployeeByID(String ID);
     public void insertEmployee(Employee employee);
     public void deleteEmployeeByemp_id(int emp_id);
-    public void deleteEmployeeByID(int ID);
+    public void deleteEmployeeByID(String ID);
     public void updateEmployee(Employee employee);
 }

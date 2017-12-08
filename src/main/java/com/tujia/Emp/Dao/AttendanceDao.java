@@ -12,4 +12,5 @@ public interface AttendanceDao {
     public void insertAttendance(Attendance attendance);
     public void updateAttendance(Attendance attendance);
 
+    Attendance selectTodayAddByempid(int emp_id);
 }

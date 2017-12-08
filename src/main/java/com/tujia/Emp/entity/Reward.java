@@ -7,13 +7,13 @@ import java.util.Date;
 
 /**
  * 奖励惩罚表实体类
- * */
+ */
 
 public class Reward {
-    private  int emp_id;
-
+    private int emp_id;
+    private int Rewardid;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JSONField(format="yyyy-MM-dd")
+    @JSONField(format = "yyyy-MM-dd")
     private Date DATE;
 
     private String description;
@@ -21,16 +21,27 @@ public class Reward {
     private double money;
     private boolean to_file;
 
+
     @Override
+
     public String toString() {
         return "Reward{" +
                 "emp_id=" + emp_id +
+                ", Rewardid=" + Rewardid +
                 ", DATE=" + DATE +
                 ", description='" + description + '\'' +
                 ", type=" + type +
                 ", money=" + money +
                 ", to_file=" + to_file +
                 '}';
+    }
+
+    public int getRewardid() {
+        return Rewardid;
+    }
+
+    public void setRewardid(int rewardid) {
+        Rewardid = rewardid;
     }
 
     public int getEmp_id() {

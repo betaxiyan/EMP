@@ -8,6 +8,8 @@ import java.util.Date;
 public class File {
     private String ID;
 
+    private int FileId;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JSONField(format="yyyy-MM-dd")
     private Date start_date;
@@ -18,10 +20,19 @@ public class File {
 
     private String description;
 
+    public int getFileId() {
+        return FileId;
+    }
+
+    public void setFileId(int fileId) {
+        FileId = fileId;
+    }
+
     @Override
     public String toString() {
         return "File{" +
                 "ID='" + ID + '\'' +
+                ", FileId=" + FileId +
                 ", start_date=" + start_date +
                 ", end_date=" + end_date +
                 ", description='" + description + '\'' +

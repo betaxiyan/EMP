@@ -1,7 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tujia.Emp.Dao.RewardDao">
-    <select id="selectAll" resultType="com.tujia.Emp.entity.People">
-        select * from people;
+    <!--
+            public List<Reward> selectRewardByemp_id(String emp_id);
+
+    public Reward selectRewardByRewardid(int Rewardid);
+
+    public List<Reward> selectRewardByIDandDate(String emp_id, Date start_date, Date end_date);
+
+    public List<Reward> selectRewardByIDandtype(String emp_id, boolean type);
+
+    public void deleteRewardByRewardid(int Rewardid);
+
+    public void insertReward(Reward reward);
+
+    public void updateReward(Reward reward);
+    -->
+    <select id="selectRewardByemp_id" resultType="com.tujia.Emp.entity.Reward" parameterType="int">
+        select * from Reward where emp_id=#{emp_id};
     </select>
+
+    <select id="selectRewardByRewardid" resultType="com.tujia.Emp.entity.Reward" parameterType="int">
+        select * from Reward where Rewardid=#{Rewardid};
+    </select>
+
+
+
+    <parameterMap id="IDandDate" type="com.tujia.Emp.entity.Reward">
+        <parameter property="Rewardid" javaType="int" jdbcType="INTEGER"/>
+        <parameter property="start_date" javaType="java.util.Date" jdbcType="DATE"/>
+        <parameter property="end_date" javaType="java.util.Date" jdbcType="DATE"/>
+    </parameterMap>
+    <select id="selectRewardByIDandDate" parameterMap="IDandDate" resultType="com.tujia.Emp.entity.File">
+        select * from file where rewardid=#{arg0} and date between #{arg1} and #{arg2};
+    </select>
+
+    <parameterMap id="IDandType" type="com.tujia.Emp.entity.Reward">
+        <parameter property="Rewardid" javaType="int" jdbcType="INTEGER"/>
+        <parameter property="type" javaType="boolean" jdbcType="BOOLEAN"/>
+    </parameterMap>
+    <select id="selectRewardByIDandtype" parameterMap="IDandType" resultType="com.tujia.Emp.entity.File">
+        select * from file where rewardid=#{arg0} and type=#{arg1};
+    </select>
+
+    <insert id="insertReward" parameterType="com.tujia.Emp.entity.Reward" >
+        insert into Reward
+        (
+            emp_id,
+            DATE,
+            description,
+            type,
+            money,
+            to_file
+        )
+        values
+        (
+            #{emp_id},
+            #{DATE},
+            #{description},
+            #{type},
+            #{money},
+            #{to_file}
+        )
+    </insert>
+
+    <delete id="deleteRewardByRewardid" parameterType="int" >
+        delete from file where Rewardid=#{Rewardid};
+    </delete>
+
+    <update id="updateReward" parameterType="com.tujia.Emp.entity.Reward">
+        update Reward
+        set
+            emp_id=#{emp_id},
+            DATE=#{DATE},
+            description=#{description},
+            type=#{type},
+            money=#{money},
+            to_file=#{to_file}
+        where
+            Rewardid=#{Rewardid}
+
+    </update>
+
+
 </mapper>

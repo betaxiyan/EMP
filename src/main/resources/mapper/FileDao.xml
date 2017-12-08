@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tujia.Emp.Dao.FileDao">
-    <select id="selectAll" resultType="com.tujia.Emp.entity.People">
-        select * from people;
+
+    <select id="selectAllll" resultType="com.tujia.Emp.entity.File">
+        select * from file;
     </select>
+
+    <select id="selectAllByID" resultType="com.tujia.Emp.entity.File" parameterType="java.lang.String">
+        select * from file where ID=#{ID};
+    </select>
+    <select id="selectFileByFileid" resultType="com.tujia.Emp.entity.File" parameterType="int">
+        slelct * from file where Fileid=#{Fileid};
+    </select>
+
+
+    <parameterMap id="IDandDate" type="com.tujia.Emp.entity.File">
+        <parameter property="ID" javaType="java.lang.String" />
+        <parameter property="start_date" javaType="java.util.Date" jdbcType="DATE"/>
+        <parameter property="end_date" javaType="java.util.Date" jdbcType="DATE"/>
+    </parameterMap>
+    <select id="selectFileByIDandDate" parameterMap="IDandDate" resultType="com.tujia.Emp.entity.File">
+        select * from file where ID=#{arg0} and start_date&gt;=#{arg1} and end_date&lt;=#{arg2};
+    </select>
+
+    <insert id="insertFile" parameterType="com.tujia.Emp.entity.File" >
+        insert into file
+        (
+            ID,
+            START_date,
+            END_date,
+            DESCRIPTION
+        )
+        values
+        (
+            #{ID},
+            #{start_date},
+            #{end_date},
+            #{description}
+        )
+    </insert>
+
+    <delete id="deleteFileByFileid" parameterType="int" >
+        delete from file where fileid=#{fileid};
+    </delete>
+    <delete id="deleteFileByID" parameterType="java.lang.String" >
+        delete from file where ID=#{ID};
+    </delete>
+
+    <update id="updateFile" parameterType="com.tujia.Emp.entity.File">
+        update file
+        set
+            ID=#{ID},
+            start_date=#{start_date},
+            end_date=#{end_date},
+            description=#{description}
+        where
+            fileid=#{Fileid}
+
+    </update>
+
 </mapper>

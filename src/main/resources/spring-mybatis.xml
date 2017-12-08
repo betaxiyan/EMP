@@ -22,6 +22,13 @@
     <!-- 静态资源默认servlet配置 -->
     <context:property-placeholder location="classpath:jdbc.Propertis"/>
 
+    <mvc:resources mapping="/html/**" location="/html/"/>
+    <mvc:resources mapping="/assets/css/**" location="/assets/css/"/>
+    <mvc:resources mapping="/assets/fonts/**" location="/assets/fonts/"/>
+    <mvc:resources mapping="/assets/js/**" location="/assets/js/"/>
+    <mvc:resources mapping="/assets/img/*" location="/assets/img/"/>
+    <mvc:resources mapping="/assets/images/*" location="/assets/images/"/>
+
     <bean id="resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 

@@ -16,7 +16,10 @@ public class Attendance {
     @JSONField(format="yyyy-MM-dd")
     private Date date;
 
+    @JSONField(format="HH:mm:ss")
     private Time work_time;
+
+    @JSONField(format="HH:mm:ss")
     private Time offwork_time;
     private Boolean checked;
     private int  flag;

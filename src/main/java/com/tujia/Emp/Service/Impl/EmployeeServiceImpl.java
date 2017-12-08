@@ -66,14 +66,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         return JSON.toJSONString(ResultUtil.success());
     }
 
-    public String deleteEmployeeByID(int ID) {
-        try{
+    public String deleteEmployeeByID(String ID) {
+        try {
             employeeDao.deleteEmployeeByID(ID);
         }catch (Exception e){
-            return JSON.toJSONString(ResultUtil.error(ResultEnum.Error.getCode(),e.getMessage()));
-        }
+        return JSON.toJSONString(ResultUtil.error(ResultEnum.Error.getCode(),e.getMessage()));
+    }
         return JSON.toJSONString(ResultUtil.success());
     }
+
 
     public String updateEmployee(Employee employee) {
         try{

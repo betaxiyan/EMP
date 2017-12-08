@@ -5,6 +5,10 @@
         select * from Attendance;
     </select>
 
+    <select id="selectTodayAddByempid" parameterType="int" resultType="com.tujia.Emp.entity.Attendance">
+        select * from Attendance where emp_id=#{emp_id};
+    </select>
+
     <insert id="insertAttendance" parameterType="com.tujia.Emp.entity.Attendance">
         insert into Attendance
         (
@@ -26,16 +30,13 @@
         )
     </insert>
     <update id="updateAttendance" parameterType="com.tujia.Emp.entity.Attendance">
-        updeta Attendance
+        update Attendance
         set
-        (
             work_time=#{work_time},
             offwork_time=#{offwork_time},
             checked=#{checked},
             flag=#{flag}
-        )
         where
-            emp_id=#{emp_id},
-            date=#{date}
+            emp_id=#{emp_id} and date=#{date}
     </update>
 </mapper>
